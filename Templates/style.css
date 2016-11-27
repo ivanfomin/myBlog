@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    background: #FFF8E8;
+    padding: 0 20px;
+    font-size: 90%;
+    counter-reset: h2; /*создаем счетчик для любого заголовка h2*/
+}
+
+h1 {
+    font-family: 'Lora', serif;
+    color: #564C4A;
+    font-weight: 300;
+}
+
+h2 {
+    font-family: 'Lora', serif;
+    color: #B00D22;
+    font-weight: 300;
+    clear: both; /* отменяем обтекание с обеих сторон */
+    padding: 1em 0 0.25em;
+    border-bottom: 2px solid;
+    counter-increment: h2; /* задаем увеличение нумерации заголовков h2 на единицу */
+}
+
+h2:before {
+    content: " " counter(h2) '. '; /* добавляем в начале каждого заголовка текущее значение счетчика и точку с пробелом */
+}
+
+p {
+    font-family: arial;
+    color: #785F5B;
+    line-height: 1.3;
+}

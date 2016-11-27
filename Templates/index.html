@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все статьи</title>
+    <link href="/Templates/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+{% for article in articles %}
+<h1>
+    {{article.title}}
+</h1>
+<article>
+    {{article.content}}
+</article>
+<hr>
+{%endfor%}
+
+</body>
+</html>

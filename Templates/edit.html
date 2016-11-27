@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{article.title}}</title>
+</head>
+<body>
+<form action="/Templates/action.php" method="post">
+    <p>
+        Название:
+        <input type="text" name="title" value="{{article.title}}" style="width: 40%">
+    </p>
+    <p>
+        Описание:
+        <input type="text" name="content" value="{{article.content}}" style="width: 100%">
+    </p>
+
+    <input type="hidden"  name="id" value="{{article.id}}">
+
+    <input type="submit" name ="update" value="Изменить">
+</form>
+
+</body>
+</html>

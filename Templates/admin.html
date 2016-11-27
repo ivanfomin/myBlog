@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>АдминПанель</title>
+    <link href="/Templates/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<table border="1px dotted black">
+    <tr>
+        <th>Заголовок</th>
+        <th>Содержимое</th>
+    </tr>
+    {% for article in articles %}
+    <tr>
+        <td>{{article.title}}</td>
+        <td>{{article.content}}</td>
+        <td>
+            <a href="/Admin/Edit/{{article.id}}">Изменить</a>
+        </td>
+        <td>
+            <a href="/Admin/Delete/{{article.id}}">Удалить</a>
+        </td>
+    </tr>
+    {%endfor%}
+</table>
+
+<h2><a href="/Admin/Add/">Добавить статью</a></h2>
+
+</body>
+</html>
