@@ -7,7 +7,7 @@ require_once __DIR__ . '/autoloads.php';
 
 $parts = explode('/', $_SERVER['REQUEST_URI']);
 
-$ctrlRequest = !empty($parts[1]) ? $parts[1] : 'Index';
+$ctrlRequest = !empty($parts[1]) ? $parts[1] : 'Admin';
 
 $ctrlClassName = '\Controllers\\' . $ctrlRequest;
 
