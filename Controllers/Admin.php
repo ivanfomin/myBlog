@@ -31,7 +31,7 @@ class Admin extends Controller
     {
         $this->view->article = Article::findById($id);
         $this->view->article->delete();
-        $this->actionDefault();
+        header('Location: /');
     }
 
     public function actionAdd()
@@ -39,4 +39,25 @@ class Admin extends Controller
         $this->view->display('add.html');
     }
 
+    public function actionAct()
+    {
+
+        $id = $_POST['id'];
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+
+        if (isset($_POST['update'])) {
+            $article = Article::findById($id);
+            $article->title = $title;
+            $article->content = $content;
+            $article->save();
+        } else if (isset($_POST['insert'])) {
+            $article = new Article();
+            $article->title = $title;
+            $article->content = $content;
+            $article->save();
+        }
+
+        header('Location: /');
+    }
 }
