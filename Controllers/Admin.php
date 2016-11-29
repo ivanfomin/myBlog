@@ -8,7 +8,6 @@
 
 namespace Controllers;
 
-
 use Core\Controller;
 use Model\Article;
 
