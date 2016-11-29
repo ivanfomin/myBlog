@@ -8,7 +8,7 @@
 
 </head>
 <body>
-
+<h1>Админка блога</h1>
 <table border="1px dotted black">
     <tr>
         <th>Заголовок</th>
@@ -16,7 +16,7 @@
     </tr>
     {% for article in articles %}
     <tr>
-        <td>{{article.title}}</td>
+        <td><b>{{article.title}}</b></td>
         <td>{{article.content}}</td>
         <td>
             <a href="/Admin/Edit/{{article.id}}">Изменить</a>
@@ -25,10 +25,10 @@
             <a href="/Admin/Delete/{{article.id}}">Удалить</a>
         </td>
     </tr>
-    {%endfor%}
+    {% endfor %}
 </table>
 
 <h2><a href="/Admin/Add/">Добавить статью</a></h2>
 
 </body>
-</html>
+</html >

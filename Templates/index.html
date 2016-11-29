@@ -6,16 +6,16 @@
     <link href="/Templates/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
+<h1>Блог новостей</h1>
 {% for article in articles %}
-<h1>
-    {{article.title}}
-</h1>
+<h2>
+    <b>{{article.title}}</b>
+</h2>
 <article>
     {{article.content}}
 </article>
 <hr>
-{%endfor%}
+{% endfor %}
 
 </body>
 </html>
