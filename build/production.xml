@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="myBlog" default="build" basedir=".">
+    <target name="build">
+        <echo message="Hello" />
+    </target>
+</project>
