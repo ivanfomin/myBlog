@@ -1,14 +1,8 @@
 <?php
 
-function checkLoginPassword($login, $password)
-{
 
-}
 
-function login($login)
-{
-    setcookie('auth', $login, time() + 86400);
-}
+
 
 function isUser()
 {
