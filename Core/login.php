@@ -1,28 +1,28 @@
 <?php
+session_start();
 
-function checkLoginPassword($login, $password)
-{
 
-}
+require_once __DIR__ . '/../autoloads.php';
 
-function login($login)
-{
-    setcookie('auth', $login, time() + 86400);
-}
+
 
 if(empty($_POST['login']) || empty($_POST['password'])) {
-    header('Location: /form.html');
+    header('Location: form.html');
     exit;
 }
 
 $login = $_POST['login'];
 $password = $_POST['password'];
 
-if(!checkLoginPassword($login, $password)) {
-    header('Location: /form.html');
+if(!\Core\LoginUser::checkLoginPassword($login, $password)) {
+    header('Location: form.html');
     exit;
 }
 
-login($login);
-header('Location: /index.php');
+$_SESSION['login'] = $login;
+
+
+\Core\LoginUser::login($login);
+
+header('Location: /Admin');
 exit;

@@ -18,4 +18,4 @@ if (isset($_POST['update'])) {
     $article->save();
 }
 
-header('Location: /');
+header('Location: /Admin');

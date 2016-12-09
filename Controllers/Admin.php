@@ -5,17 +5,27 @@
  * Date: 26.11.16
  * Time: 19:31
  */
-
 namespace Controllers;
 
+session_start();
+
+
 use Core\Controller;
+use Core\Login;
+use Core\LoginUser;
 use Model\Article;
 
 
 class Admin extends Controller
 {
+
     public function actionDefault()
     {
+        if (!LoginUser::isUser()) {
+            header('Location: /Core/form.html');
+            exit;
+        }
+        $this->sessia();
         $this->view->articles = Article::findAll();
         $this->view->display('admin.html');
     }
@@ -30,7 +40,7 @@ class Admin extends Controller
     {
         $this->view->article = Article::findById($id);
         $this->view->article->delete();
-        header('Location: /');
+        header('Location: /Admin');
     }
 
     public function actionAdd()
@@ -57,6 +67,24 @@ class Admin extends Controller
             $article->save();
         }
 
-        header('Location: /');
+        header('Location: /Admin');
     }
+
+    public function actionLogout()
+    {
+        LoginUser::logout();
+        header('Location: /Admin');
+        exit;
+    }
+
+    protected function sessia()
+    {
+        if (isset($_SESSION['login'])) {
+            echo 'Hello, ' . $_SESSION['login'];
+        } else {
+            echo 'Hello, friend';
+        }
+    }
+
+
 }
