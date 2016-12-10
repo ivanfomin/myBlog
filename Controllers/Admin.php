@@ -25,7 +25,6 @@ class Admin extends Controller
             header('Location: /Core/form.html');
             exit;
         }
-        $this->sessia();
         $this->view->articles = Article::findAll();
         $this->view->display('admin.html');
     }
