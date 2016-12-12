@@ -1,5 +1,8 @@
 <?php
+require_once __DIR__ . '/../autoloads.php';
 
 
 
-logout();
+\Core\LoginUser::logout();
+header('Location: ' . $_SERVER['HTTP_REFERER']);
+

@@ -21,10 +21,7 @@ class Admin extends Controller
 
     public function actionDefault()
     {
-        if (!LoginUser::isUser()) {
-            header('Location: /Core/form.html');
-            exit;
-        }
+        $this->view->user = LoginUser::check();
         $this->view->articles = Article::findAll();
         $this->view->display('admin.html');
     }

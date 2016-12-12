@@ -44,8 +44,12 @@ class LoginUser
 
     public static function check()
     {
-
-        return self::checkLoginPassword($_COOKIE['auth']);
+        if(isset($_COOKIE['auth'])) {
+            return self::checkLoginPassword($_COOKIE['auth']);
+        }
+        else {
+            return null;
+        }
 
     }
 }

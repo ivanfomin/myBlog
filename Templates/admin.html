@@ -8,6 +8,35 @@
 
 </head>
 <body>
+{% if user %}
+<div id="welcome">
+    <h2>Welcome, <span>{{user.login}}! </span></h2>
+    <p><a href="../Core/logout.php">Logout</a> Here!</p>
+</div>
+{% else %}
+<div class="container mlogin">
+    <div id="login">
+        <h1>LOGIN</h1>
+        <form name="log" id="loginform" action="../Core/login.php" method="POST">
+            <p>
+                <label for="login">Username<br/>
+                    <input type="text" name="login" id="login" class="input" value="" size="20"/></label>
+            </p>
+            <p>
+                <label for="password">Password<br/>
+                    <input type="password" name="password" id="password" class="input" value="" size="20"/></label>
+            </p>
+            <p class="submit">
+                <input type="submit" name="send" class="button" value="Log In"/>
+            </p>
+        </form>
+
+    </div>
+</div>
+{% endif %}
+
+{% if user.id_role > 1 %}
+
 <h1>Админка блога</h1>
 <table border="1px dotted black">
     <tr>
@@ -33,5 +62,8 @@
 <p>
     <a href="/Admin/Logout">Выйти</a>
 </p>
+
+{% endif %}
+
 </body>
-</html >
+</html>
