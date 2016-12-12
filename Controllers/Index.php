@@ -15,4 +15,11 @@ class Index extends Controller
         $this->view->articles = Article::findAll();
         $this->view->display('index.html');
     }
+
+    public function actionLogout()
+    {
+        LoginUser::logout();
+        header('Location: /');
+        exit;
+    }
 }

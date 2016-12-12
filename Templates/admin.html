@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>АдминПанель</title>
     <link href="/Templates/style.css" rel="stylesheet" type="text/css">
+    {% if user.id_role < 2 %}
+    <meta http-equiv="refresh" content="0;http://pingin.ru">
+    {% endif %}
 
 </head>
 <body>
@@ -17,7 +20,7 @@
 <div class="container mlogin">
     <div id="login">
         <h1>LOGIN</h1>
-        <form name="log" id="loginform" action="../Core/login.php" method="POST">
+        <form name="log" id="loginform" action="/Admin/Login" method="POST">
             <p>
                 <label for="login">Username<br/>
                     <input type="text" name="login" id="login" class="input" value="" size="20"/></label>
@@ -35,7 +38,6 @@
 </div>
 {% endif %}
 
-{% if user.id_role > 1 %}
 
 <h1>Админка блога</h1>
 <table border="1px dotted black">
@@ -63,7 +65,6 @@
     <a href="/Admin/Logout">Выйти</a>
 </p>
 
-{% endif %}
 
 </body>
 </html>
