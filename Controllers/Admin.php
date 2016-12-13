@@ -7,8 +7,6 @@
  */
 namespace Controllers;
 
-session_start();
-
 use Core\Controller;
 use Core\Login;
 use Core\LoginUser;

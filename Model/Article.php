@@ -14,6 +14,7 @@ use Core\Model;
 class Article extends Model
 {
     public static $table = 'articles';
+    public $id;
     public $title;
     public $content;
 }

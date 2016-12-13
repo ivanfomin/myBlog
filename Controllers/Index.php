@@ -16,6 +16,13 @@ class Index extends Controller
         $this->view->display('index.html');
     }
 
+    public function actionPage($id)
+    {
+        $this->view->user = LoginUser::check();
+        $this->view->article = Article::findById($id);
+        $this->view->display('page.html');
+    }
+
     public function actionLogout()
     {
         LoginUser::logout();

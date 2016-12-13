@@ -8,7 +8,6 @@
 
 namespace Core;
 
-
 use Model\User;
 
 class LoginUser
@@ -32,16 +31,6 @@ class LoginUser
     {
         unset($_COOKIE['auth']);
         setcookie('auth', '', time() - 1, '/');
-    }
-
-    public static function isUser()
-    {
-        return isset($_COOKIE['auth']);
-    }
-
-    public static function getUser()
-    {
-        return $_COOKIE['auth'];
     }
 
     public static function check()

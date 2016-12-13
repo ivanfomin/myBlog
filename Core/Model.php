@@ -33,14 +33,6 @@ abstract class Model
         return $data[0] ?? false;
     }
 
-    public static function findByLog($login)
-    {
-        $db = Db::getInstance();
-        $sql = 'SELECT * FROM ' . static::$table . ' WHERE login=:login';
-        $data = $db->query($sql, [':login' => $login], static::class);
-        return $data[0] ?? false;
-    }
-
     public function isNew()
     {
         return empty($this->id);

@@ -10,6 +10,7 @@ namespace Model;
 
 
 use Core\Model;
+use Core\Db;
 
 class User extends Model
 {
@@ -18,5 +19,13 @@ class User extends Model
     public $password;
     public $name;
     public $id_role;
+
+    public static function findByLog($login)
+    {
+        $db = Db::getInstance();
+        $sql = 'SELECT * FROM ' . static::$table . ' WHERE login=:login';
+        $data = $db->query($sql, [':login' => $login], static::class);
+        return $data[0] ?? false;
+    }
 
 }
