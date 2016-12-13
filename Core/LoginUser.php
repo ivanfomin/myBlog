@@ -13,12 +13,14 @@ use Model\User;
 
 class LoginUser
 {
-    public static function checkLoginPassword($login)
+    public static function checkLoginPassword($login, $password)
     {
-//        $users = ['pupkin' => '123', 'ivanov' => 'qwerty'];
-//        return isset($users[$login]) && $password === $users[$login];
         $user = User::findByLog($login);
-        return $user;
+        if (password_verify($password, $user->password)) {
+            return $user;
+        } else {
+            return null;
+        }
     }
 
     public static function login($login)
@@ -44,10 +46,9 @@ class LoginUser
 
     public static function check()
     {
-        if(isset($_COOKIE['auth'])) {
-            return self::checkLoginPassword($_COOKIE['auth']);
-        }
-        else {
+        if (isset($_COOKIE['auth'])) {
+            return User::findByLog($_COOKIE['auth']);   //косяк с безопасностью
+        } else {
             return null;
         }
 

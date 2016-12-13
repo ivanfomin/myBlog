@@ -16,6 +16,7 @@ class User extends Model
     public static $table = 'users';
     public $login;
     public $password;
+    public $name;
     public $id_role;
 
 }

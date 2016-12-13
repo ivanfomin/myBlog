@@ -9,7 +9,6 @@ namespace Controllers;
 
 session_start();
 
-
 use Core\Controller;
 use Core\Login;
 use Core\LoginUser;
@@ -66,13 +65,6 @@ class Admin extends Controller
         header('Location: /Admin');
     }
 
-    public function actionLogout()
-    {
-        LoginUser::logout();
-        header('Location: /Admin');
-        exit;
-    }
-
     public function actionLogin()
     {
         if (empty($_POST['login']) || empty($_POST['password'])) {
@@ -90,9 +82,7 @@ class Admin extends Controller
 
         $_SESSION['login'] = $login;
 
-
         \Core\LoginUser::login($login);
-
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }

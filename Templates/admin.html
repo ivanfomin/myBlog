@@ -1,43 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>АдминПанель</title>
-    <link href="/Templates/style.css" rel="stylesheet" type="text/css">
-    {% if user.id_role < 2 %}
-    <meta http-equiv="refresh" content="0;http://pingin.ru">
-    {% endif %}
-
-</head>
-<body>
-{% if user %}
-<div id="welcome">
-    <h2>Welcome, <span>{{user.login}}! </span></h2>
-    <p><a href="../Core/logout.php">Logout</a> Here!</p>
-</div>
-{% else %}
-<div class="container mlogin">
-    <div id="login">
-        <h1>LOGIN</h1>
-        <form name="log" id="loginform" action="/Admin/Login" method="POST">
-            <p>
-                <label for="login">Username<br/>
-                    <input type="text" name="login" id="login" class="input" value="" size="20"/></label>
-            </p>
-            <p>
-                <label for="password">Password<br/>
-                    <input type="password" name="password" id="password" class="input" value="" size="20"/></label>
-            </p>
-            <p class="submit">
-                <input type="submit" name="send" class="button" value="Log In"/>
-            </p>
-        </form>
-
-    </div>
-</div>
-{% endif %}
-
+{% extends 'parent.html' %}
+{% block content %}
 
 <h1>Админка блога</h1>
 <table border="1px dotted black">
@@ -61,10 +23,5 @@
 
 <h2><a href="/Admin/Add/">Добавить статью</a></h2>
 
-<p>
-    <a href="/Admin/Logout">Выйти</a>
-</p>
+{% endblock %}
 
-
-</body>
-</html>

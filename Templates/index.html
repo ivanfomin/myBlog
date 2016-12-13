@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Все статьи</title>
-    <link href="/Templates/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-{% if user %}
-<div id="welcome">
-    <h2>Welcome, <span>{{user.login}}! </span></h2>
-    <p><a href="/Index/Logout">Logout</a> Here!</p>
-</div>
-{% else %}
-<div class="container mlogin">
-    <div id="login">
-        <h1>LOGIN</h1>
-        <form name="log" id="loginform" action="../Core/login.php" method="POST">
-            <p>
-                <label for="login">Username<br/>
-                    <input type="text" name="login" id="login" class="input" value="" size="20"/></label>
-            </p>
-            <p>
-                <label for="password">Password<br/>
-                    <input type="password" name="password" id="password" class="input" value="" size="20"/></label>
-            </p>
-            <p class="submit">
-                <input type="submit" name="send" class="button" value="Log In."/>
-            </p>
-            <p class="regtext">No account yet? <a href="../Core/register.php" >Register Here</a>!</p>
-        </form>
-
-    </div>
-</div>
-{% endif %}
+{% extends 'parent.html' %}
+{% block content %}
 
 <h1>Блог новостей</h1>
 {% for article in articles %}
@@ -45,9 +12,8 @@
 <hr>
 {% endfor %}
 
-{% if user.id_role > 1%}
+{% if user.id_role > 1 %}
 <a href="/Admin">АдминПанель</a>
 {% endif %}
 
-</body>
-</html>
+{% endblock %}
