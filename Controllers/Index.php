@@ -6,6 +6,7 @@ namespace Controllers;
 use Core\Controller;
 use Core\LoginUser;
 use Model\Article;
+use Model\User;
 
 class Index extends Controller
 {
@@ -14,6 +15,12 @@ class Index extends Controller
         $this->view->user = LoginUser::check();
         $this->view->articles = Article::findAll();
         $this->view->display('index.html');
+    }
+
+    public function actionAdd($user_id)
+    {
+        $this->view->user_id = $user_id;
+        $this->view->display('add.html');
     }
 
     public function actionPage($id)

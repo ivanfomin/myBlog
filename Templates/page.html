@@ -1,5 +1,11 @@
 {% extends 'parent.html' %}
 
+{% block title %}
+<title>
+    {{article.title}}
+</title>
+{% endblock %}
+
 {% block content %}
 <h2>
     <b>{{article.title}}</b>
@@ -7,6 +13,14 @@
 <article>
     {{article.content}}
 </article>
+<sub>
+    Автор: <b>{{article.user | default('Без автора')}}</b>
+    <br>
+    {% if user.id == article.user_id %}
+    <button><a href="/Admin/Edit/{{article.id}}">Изменить</a>
+    </button>
+    {% endif %}
+</sub>
 <br>
 <a href=" /">На главную</a>
 {% endblock %}

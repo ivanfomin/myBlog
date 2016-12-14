@@ -1,20 +1,33 @@
 {% extends 'parent.html' %}
 {% block content %}
 
-{% if user %}
+{% if user.id_role > 1 %}
+<p>
+<h2><a href="/Admin"><b>АдминПанель</b></a></h2>
+</p>
+{% endif %}
+
 <h1>Блог новостей</h1>
 {% for article in articles %}
 <h2>
     <a href="/Index/Page/{{article.id}}"><b>{{article.title}}</b></a>
+    <br>
+    <sub>
+        Автор: <b>{{article.user | default('Без автора')}}</b>
+        <br>
+        {% if user.id == article.user_id %}
+        <button><a href="/Admin/Edit/{{article.id}}">Изменить</a>
+        </button>
+        {% endif %}
+    </sub>
 </h2>
 <hr>
 {% endfor %}
+{% if user %}
+<h2>
+    <button><a href="/Index/Add/{{user.id}}">Добавить статью</a></button>
+</h2>
+{% endif %}
 
-{% if user.id_role > 1 %}
-<a href="/Admin">АдминПанель</a>
-{% endif %}
-{% else %}
-<h3>Вы не авторизованы!</h3>
-{% endif %}
 
 {% endblock %}
