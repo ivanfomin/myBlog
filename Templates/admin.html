@@ -1,6 +1,6 @@
 {% extends 'parent.html' %}
 {% block content %}
-
+{% if user.id_role > 1 %}
 <h1>Админка блога</h1>
 <table border="1px dotted black">
     <tr>
@@ -20,6 +20,7 @@
     </tr>
     {% endfor %}
 </table>
+{% endif %}
 
 <h3><a href="/Index">Back</a></h3>
 {% endblock %}
