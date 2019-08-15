@@ -14,10 +14,10 @@ use Core\Model;
 class Article extends Model
 {
     public static $table = 'articles';
-    public $id;
     public $title;
     public $content;
     public $user_id;
+    public $date;
 
     public function __get($name)
     {

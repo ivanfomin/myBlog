@@ -20,7 +20,7 @@ class Db
         $dbname = 'blog';
         $dsn = $driver . ':host=' . $host . ';dbname=' . $dbname;
         try {
-            $this->dbh = new \PDO($dsn, 'root', '321', [
+            $this->dbh = new \PDO($dsn, 'root', 'password', [
                 \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',]);
         } catch (\PDOException $exception) {
             echo $exception->getMessage();

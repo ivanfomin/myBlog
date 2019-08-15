@@ -2,7 +2,7 @@
 session_start();
 
 
-require_once __DIR__ . '/../autoloads.php';
+require_once __DIR__ . '/../autoload.php';
 
 
 if (empty($_POST['login']) || empty($_POST['password'])) {

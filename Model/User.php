@@ -18,7 +18,7 @@ class User extends Model
     public $login;
     public $password;
     public $name;
-    public $id_role;
+    public $role;
 
     public static function findByLog($login)
     {

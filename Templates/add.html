@@ -3,16 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Новая статья</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        textarea {
+            background: #fce9c0; /* Цвет фона */
+            border: 2px solid #a9c358; /* Параметры рамки */
+            padding: 10px; /* Поля */
+            width: 100%; /* Ширина */
+            height: 200px; /* Высота */
+            box-sizing: border-box; /* Алгоритм расчёта ширины */
+            font-size: 14px; /* Размер шрифта */
+        }
+    </style>
 </head>
 <body>
 <form action="/Templates/action.php" method="post">
     <p>
         Название:
-        <input type="text" name="title" style="width: 40%">
+        <input type="text" name="title" style="width: 40%" placeholder="Заголовок">
     </p>
     <p>
         Описание:
-        <input type="text" name="content" style="width: 100%">
+        <textarea name="content">Текст</textarea>
     </p>
     <input type="hidden" name="user_id" value="{{user_id}}">
 

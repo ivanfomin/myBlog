@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../autoloads.php';
+require_once __DIR__ . '/../autoload.php';
 
 $id = $_POST['id'];
 $title = htmlspecialchars($_POST['title']);

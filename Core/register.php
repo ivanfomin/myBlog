@@ -3,7 +3,7 @@
 session_start();
 
 
-require_once __DIR__ . '/../autoloads.php';
+require_once __DIR__ . '/../autoload.php';
 
 use Model\User;
 
@@ -19,7 +19,7 @@ if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['name
         $user->login = $login;
         $user->password = password_hash($password, PASSWORD_DEFAULT);
         $user->name = $name;
-        $user->id_role = 1;
+        $user->role = 1;
         $user->save();
         $message = "Account Successfully Created";
     } else {

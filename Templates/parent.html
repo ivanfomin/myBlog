@@ -10,13 +10,13 @@
 <body>
 {% if user %}
 <div id="welcome">
-    <h2>Welcome, <span>{{user.name}}! </span></h2>
-    <p><a href="/Index/Logout">Logout</a> Here!</p>
+    <h2>Здравствуйте, <span>{{user.name}}! </span></h2>
+    <p><a href="/Index/Logout">Выйти</a> </p>
 </div>
 {% else %}
-<div class="container mlogin">
+<div class="container login">
     <div>
-        <h1>LOGIN</h1>
+        <h3></h3>
         <form name="log" id="loginform" action="/Core/login.php" method="POST">
             <p>
                 <label for="login">Username<br/>
@@ -27,9 +27,9 @@
                     <input type="password" name="password" id="password" class="input" value="" size="20"/></label>
             </p>
             <p class="submit">
-                <input type="submit" name="send" class="button" value="Log In."/>
+                <input type="submit" name="send" class="button" value="Войти"/>
             </p>
-            <p class="regtext">No account yet? <a href="../Core/register.php">Register Here</a>!</p>
+            <p class="regtext">Нет аккаунта? <a href="../Core/register.php">Регистрация</a></p>
         </form>
 
     </div>

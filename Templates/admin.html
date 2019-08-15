@@ -1,6 +1,6 @@
 {% extends 'parent.html' %}
 {% block content %}
-{% if user.id_role > 1 %}
+{% if user.role > 1 %}
 <h1>Админка блога</h1>
 <table border="1px dotted black">
     <tr>
@@ -15,13 +15,13 @@
             <a href="/Admin/Edit/{{article.id}}">Изменить</a>
         </td>
         <td>
-            <a href="/Admin/Delete/{{article.id}}">Удалить</a>
+            <a onclick="return confirm('Вы точно хотите удалить статью ?')" href="/Admin/Delete/{{article.id}}">Удалить</a>
         </td>
     </tr>
     {% endfor %}
 </table>
 {% endif %}
 
-<h3><a href="/Index">Back</a></h3>
+<h3><a href="../index.php">Назад</a></h3>
 {% endblock %}
 
