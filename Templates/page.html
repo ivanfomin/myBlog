@@ -10,17 +10,48 @@
 <h2>
     <b>{{article.title}}</b>
 </h2>
-<article>
+<article class="textbox2">
     {{article.content}}
 </article>
 <sub>
     Автор: <b>{{article.user | default('Без автора')}}</b>
     <br>
+    <sup>
+        Дата: {{article.date}}
+    </sup>
+    <br>
     {% if user.id == article.user_id %}
-    <button><a href="/Admin/Edit/{{article.id}}">Изменить</a>
+    <button class="active"><a href="/Admin/Edit/{{article.id}}">Изменить</a>
     </button>
     {% endif %}
 </sub>
 <br>
-<a href=" /">На главную</a>
+<br>
+
+
+<form action="/Templates/actionComment.php" method="post">
+
+    <p>
+
+        <textarea name="content"></textarea>
+    </p>
+    <input type="hidden" name="user_login" value="{{user.login}}">
+    <input type="hidden" name="article_id" value="{{article.id}}">
+
+    <button type="submit" value="Комментировать">Комментировать</button>
+</form>
+<br>
+
+
+<b>Комментарии</b>
+<div class="textbox">
+    {% for comment in comments %}
+    <div class=textbox2>
+        {{comment.content}}
+    </div>
+    <p>Пользователь: {{comment.user_login}}</p>
+    <sup>{{comment.date}}</sup>
+    <hr>
+    {% endfor %}
+</div>
 {% endblock %}

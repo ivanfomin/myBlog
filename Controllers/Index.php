@@ -7,6 +7,7 @@ use Core\Controller;
 use Core\LoginUser;
 use Model\Article;
 use Model\User;
+use Model\Comment;
 
 class Index extends Controller
 {
@@ -17,16 +18,30 @@ class Index extends Controller
         $this->view->display('index.html');
     }
 
-    public function actionAdd($user_id)
+    public function actionAdd()
     {
-        $this->view->user_id = $user_id;
+        $this->view->user = LoginUser::check();
         $this->view->display('add.html');
+    }
+
+
+    public function actionEnter()
+    {
+        $this->view->user = LoginUser::check();
+
+        if ($this->view->user != null) {
+            $this->actionDefault();
+        } else {
+            $this->view->display('enter.html');
+        }
+
     }
 
     public function actionPage($id)
     {
         $this->view->user = LoginUser::check();
         $this->view->article = Article::findById($id);
+        $this->view->comments = Comment::findComments($id);
         $this->view->display('page.html');
     }
 

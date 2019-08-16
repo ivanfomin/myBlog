@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{article.title}}</title>
-</head>
-<body>
+{% extends 'parent.html' %}
+{% block content %}
+
 <form action="/Templates/action.php" method="post">
     <p>
         Название:
@@ -12,13 +8,12 @@
     </p>
     <p>
         Описание:
-        <input type="text" name="content" value="{{article.content}}" style="width: 100%">
+        <textarea name="content">{{article.content}}</textarea>
     </p>
 
     <input type="hidden"  name="id" value="{{article.id}}">
 
     <input type="submit" name ="update" value="Изменить">
 </form>
+{% endblock %}
 
-</body>
-</html>

@@ -5,6 +5,7 @@
  * Date: 26.11.16
  * Time: 19:31
  */
+
 namespace Controllers;
 
 use Core\Controller;
@@ -25,6 +26,7 @@ class Admin extends Controller
 
     public function actionEdit($id)
     {
+        $this->view->user = LoginUser::check();
         $this->view->article = Article::findById($id);
         $this->view->display('edit.html');
     }

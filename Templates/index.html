@@ -1,37 +1,63 @@
 {% extends 'parent.html' %}
 {% block content %}
 
-{% if user.role > 1 %}
-<p>
-<h2><a href="/Admin"><b>АдминПанель</b></a></h2>
-</p>
-{% endif %}
-
-<h1>Блог новостей</h1>
-{% for article in articles %}
-<h2>
-    <a href="/Index/Page/{{article.id}}"><b>{{article.title}}</b></a>
-    <br>
-    <sub>
-        Автор: <b>{{article.user | default('Без автора')}}</b>
-        <br>
-        <sup>
-        Дата: {{article.date}}
-        </sup>
-        <br>
-        {% if user.id == article.user_id %}
-        <button><a href="/Admin/Edit/{{article.id}}">Изменить</a>
-        </button>
-        {% endif %}
-    </sub>
-</h2>
-<hr>
-{% endfor %}
 {% if user %}
-<h2>
-    <button><a href="/Index/Add/{{user.id}}">Добавить статью</a></button>
+<h2 class="feed">
+    <button><a href="/Index/Add/">Добавить статью</a></button>
 </h2>
 {% endif %}
+<!--MiddleRow Begin-->
 
+<div id="midrow">
+    <div id="container">
+        {% set count = 1 %}
 
+        {% for article in articles %}
+
+        <div class="box2">
+
+            <h1>{{article.title}}</h1>
+            <a class="button" href="/Index/Page/{{article.id}}"><span>Читать</span></a>
+            <br>
+            <sub>
+                Автор: <b>{{article.user | default('Без автора')}}</b>
+
+                {% if user.id == article.user_id %}
+                <button><a href="/Admin/Edit/{{article.id}}">Изменить</a>
+                </button>
+                {% endif %}
+            </sub>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+</div>
+
+<!--MiddleRow END-->
+<!--BottomRow Begin-->
+<div id="bottomrow">
+    <div class="textbox">
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget consequat odio. Proin sapien erat,
+            venenatis ut mollis vel, pulvinar in eros. Cras vel felis massa, a vulputate leo. Donec posuere, orci in
+            congue faucibus, erat metus feugiat augue, congue ultricies orci nulla in velit. Morbi pulvinar, justo nec
+            suscipit bibendum, nisl est cursus orci, non sagittis ipsum enim sed orci. Sed imperdiet tristique
+            condimentum. Proin eget ipsum odio, in adipiscing leo. In hac habitasse platea dictumst. Maecenas id dui non
+            nisl lobortis porta sed sed mi. Nunc molestie tempor semper. Aenean non eros risus. Maecenas tincidunt
+            vehicula lectus, id posuere orci consequat eget. Nam dictum ante vitae turpis interdum accumsan. Nullam est
+            libero, porttitor vitae venenatis et, commodo viverra turpis. Ut aliquam facilisis dignissim.</a></div>
+    <div class="feed"><a href="#"><img alt="" src="images/twitter.jpg" height="80" width="75"/></a> <a href="#"><img
+            alt="" src="images/rss.jpg" height="80" width="67"/></a></div>
+</div>
+<!--BottomRow END-->
+<!--Footer Begin-->
+<div id="footer">
+    <div class="foot"><span>Calliope</span> by <a href="http://www.towfiqi.com">Towfiq I.</a> is licensed under a <a
+            href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License.</a>
+    </div>
+</div>
+<!--Footer END-->
 {% endblock %}

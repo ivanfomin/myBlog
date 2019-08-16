@@ -1,34 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Новая статья</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        textarea {
-            background: #fce9c0; /* Цвет фона */
-            border: 2px solid #a9c358; /* Параметры рамки */
-            padding: 10px; /* Поля */
-            width: 100%; /* Ширина */
-            height: 200px; /* Высота */
-            box-sizing: border-box; /* Алгоритм расчёта ширины */
-            font-size: 14px; /* Размер шрифта */
-        }
-    </style>
-</head>
-<body>
+{% extends 'parent.html' %}
+{% block content %}
+
 <form action="/Templates/action.php" method="post">
     <p>
         Название:
-        <input type="text" name="title" style="width: 40%" placeholder="Заголовок">
+        <input type="text" name="title" style="width: 40%" >
     </p>
     <p>
         Описание:
-        <textarea name="content">Текст</textarea>
+        <textarea name="content"></textarea>
     </p>
-    <input type="hidden" name="user_id" value="{{user_id}}">
+    <input type="hidden" name="user_id" value="{{user.id}}">
 
     <input type="submit" name="insert" value="Сохранить">
 </form>
-</body>
-</html>
+
+
+{% endblock %}

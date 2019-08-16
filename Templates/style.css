@@ -35,8 +35,25 @@ a {
 }
 
 span {
-    font-weight: 300;
-    color: #f58220;
+    font-weight: 100;
+    color: #f584c8;
+}
+
+textarea {
+
+    background: #fce9c0; /* Цвет фона */
+    border: 2px solid #a9c358; /* Параметры рамки */
+    padding: 10px; /* Поля */
+    width: 100%; /* Ширина */
+    height: 200px; /* Высота */
+    box-sizing: border-box; /* Алгоритм расчёта ширины */
+    font-size: 14px; /* Размер шрифта */
+
+}
+
+input[type=submit] {
+    border-radius: 20px;
+
 }
 
 .container {
@@ -46,9 +63,9 @@ span {
     width: 350px;
     height: auto;
     background: #fff;
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
 }
 
 #welcome {
@@ -56,9 +73,9 @@ span {
     padding: 30px;
     background: #fff;
     margin-right: 10px;
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);
-    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
 }
 
 .container h1 {
@@ -80,12 +97,3 @@ span {
     padding-bottom: 15px;
 }
 
-textarea {
-    background: #fce9c0; /* Цвет фона */
-    border: 2px solid #a9c358; /* Параметры рамки */
-    padding: 10px; /* Поля */
-    width: 100%; /* Ширина */
-    height: 200px; /* Высота */
-    box-sizing: border-box; /* Алгоритм расчёта ширины */
-    font-size: 14px; /* Размер шрифта */
-   }

@@ -21,18 +21,18 @@ if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['name
         $user->name = $name;
         $user->role = 1;
         $user->save();
-        $message = "Account Successfully Created";
-    } else {
-        $message = "That username already exists! Please try another one!";
+        $_SESSION['login'] = $login;
+        \Core\LoginUser::login($login);
 
-    }
-    if (!empty($message)) {
-        echo "MESSAGE: " . $message;
+        header('Location: /');
+    } else {
+        echo "That username already exists! Please try another one!";
         ?>
         <br>
         <a href="/">Back</a>
         <?php
     }
+
 
 } else { ?>
     <div class="container mregister">
@@ -40,16 +40,16 @@ if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['name
             <h1>REGISTER</h1>
             <form name="registerform" id="registerform" action="register.php" method="post">
                 <p>
-                    <label for="user_login">Full Name<br/>
+                    <label for="user_login">Имя<br/>
                         <input type="text" name="name" id="name" class="input" size="32" value=""/></label>
                 </p>
                 <p>
-                    <label for="login">Username<br/>
+                    <label for="login">Логин<br/>
                         <input type="text" name="login" id="login" class="input" value="" size="20"/></label>
                 </p>
 
                 <p>
-                    <label for="user_pass">Password<br/>
+                    <label for="user_pass">Пароль<br/>
                         <input type="password" name="password" id="password" class="input" value="" size="32"/></label>
                 </p>
 
@@ -58,7 +58,7 @@ if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['name
                     <input type="submit" name="register" id="register" class="button" value="Register"/>
                 </p>
 
-                <p class="regtext">Already have an account? <a href="login.php">Login Here</a>!</p>
+                <p class="regtext">Уже есть аккаунт? <a href="login.php">Войти</a>!</p>
             </form>
 
         </div>
