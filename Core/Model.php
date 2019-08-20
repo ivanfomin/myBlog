@@ -75,6 +75,7 @@ abstract class Model
             $columns[] = $column . ' = :' . $column;
         }
         $sql = $sql . implode(', ', $columns) . ' WHERE id= ' . ':id';
+
         $db = Db::getInstance();
         $db->execute($sql, $data);
     }

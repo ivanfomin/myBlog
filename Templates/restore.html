@@ -1,0 +1,17 @@
+{% extends 'parent.html' %}
+{% block content %}
+
+<form name="log" id="loginform" action="/Logic/restore_login.php" method="POST">
+    <p>
+        <label for="password">Новый пароль<br/>
+            <input type="password" name="password" size="20"/></label>
+    </p>
+    <p>
+        <label for="repeat_password">Повтор пароля<br/>
+            <input type="password" name="repeat_password" size="20"/></label>
+    </p>
+    <input type="hidden" name="id" value="{{user.id}}">
+    <button type="submit">Восстановить</button>
+</form>
+
+{% endblock %}

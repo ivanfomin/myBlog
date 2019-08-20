@@ -14,8 +14,15 @@ if (empty($_POST['login']) || empty($_POST['password'])) {
 $login = $_POST['login'];
 $password = $_POST['password'];
 
-if (!\Core\LoginUser::checkLoginPassword($login, $password)) {
+$user = \Core\LoginUser::checkLoginPassword($login, $password);
+if (!$user) {
     $message = 'Не правильный логин - пароль!';
+    header('Location: ' . "/Index/Enter/" . $message);
+    exit;
+}
+
+if ($user->active != 1) {
+     $message = 'Не пройдено подтверждение!';
     header('Location: ' . "/Index/Enter/" . $message);
     exit;
 }

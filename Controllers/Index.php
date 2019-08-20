@@ -52,4 +52,30 @@ class Index extends Controller
         header('Location: /');
         exit;
     }
+
+    public function actionSend()
+    {
+        $this->view->user = LoginUser::check();
+        $this->view->display('connect.html');
+    }
+
+    public function actionConfirm($token)
+    {
+        $user = User::findByToken($token);
+        if ($user != false) {
+            $user->active = 1;
+            $user->save();
+        }
+
+        header('Location: /');
+        exit;
+    }
+
+    public function actionRestore($id)
+    {
+        $this->view->user = User::findById($id);
+        $this->view->display("restore.html");
+    }
+
+
 }

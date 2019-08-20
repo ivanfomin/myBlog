@@ -58,7 +58,6 @@ class Db
     public function query(string $sql, array $data = [], $class = null)
     {
         $sth = $this->dbh->prepare($sql);
-
         $result = $sth->execute($data);
         if (false === $result) {
             var_dump($sth->errorInfo());
