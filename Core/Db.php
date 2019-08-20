@@ -16,11 +16,11 @@ class Db
     private function __construct()
     {
         $driver = 'mysql';
-        $host = '127.0.0.1';
-        $dbname = 'blog';
-        $dsn = $driver . ':host=' . $host . ';dbname=' . $dbname;
+        $dbconf = include(__DIR__ . '/../conf.php');
+
+        $dsn = $driver . ':host=' . $dbconf['host'] . ';dbname=' . $dbconf['dbname'];
         try {
-            $this->dbh = new \PDO($dsn, 'root', 'password', [
+            $this->dbh = new \PDO($dsn, 'root', $dbconf['password'], [
                 \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',]);
         } catch (\PDOException $exception) {
             echo $exception->getMessage();
