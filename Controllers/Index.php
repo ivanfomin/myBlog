@@ -25,13 +25,14 @@ class Index extends Controller
     }
 
 
-    public function actionEnter()
+    public function actionEnter($message)
     {
         $this->view->user = LoginUser::check();
 
         if ($this->view->user != null) {
             $this->actionDefault();
         } else {
+            $this->view->message = urldecode($message);
             $this->view->display('enter.html');
         }
 

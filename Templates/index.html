@@ -1,7 +1,7 @@
 {% extends 'parent.html' %}
 {% block content %}
 
-{% if user %}
+{% if user.role > 1 %}
 <h2 class="feed">
     <button><a href="/Index/Add/">Добавить статью</a></button>
 </h2>
@@ -34,7 +34,7 @@
 
     </div>
 </div>
-</div>
+
 
 <!--MiddleRow END-->
 <!--BottomRow Begin-->

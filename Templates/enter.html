@@ -2,9 +2,12 @@
 {% block content %}
 
 <div class="container login">
+    <p>
+        {{message}}
+    </p>
     <div>
         <h3></h3>
-        <form name="log" id="loginform" action="/Core/login.php" method="POST">
+        <form name="log" id="loginform" action="/Logic/login.php" method="POST">
             <p>
                 <label for="login">Логин<br/>
                     <input type="text" name="login" id="login" class="input" value="" size="20"/></label>
@@ -16,7 +19,7 @@
             <p class="submit">
                 <input type="submit" name="send" class="button" value="Войти"/>
             </p>
-            <p>Нет аккаунта? <a style="text-decoration: underline;" href="../Core/register.php">Регистрация</a></p>
+            <p>Нет аккаунта? <a style="text-decoration: underline;" href="../Logic/register.php">Регистрация</a></p>
         </form>
 
     </div>

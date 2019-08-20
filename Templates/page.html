@@ -1,6 +1,11 @@
+
+
 {% extends 'parent.html' %}
 
+
+
 {% block title %}
+
 <title>
     {{article.title}}
 </title>
@@ -27,9 +32,9 @@
 </sub>
 <br>
 <br>
+{% if user %}
 
-
-<form action="/Templates/actionComment.php" method="post">
+<form action="/Logic/actionComment.php" method="post">
 
     <p>
 
@@ -41,6 +46,7 @@
     <button type="submit" value="Комментировать">Комментировать</button>
 </form>
 <br>
+{% endif %}
 
 
 <b>Комментарии</b>
@@ -51,6 +57,12 @@
     </div>
     <p>Пользователь: {{comment.user_login}}</p>
     <sup>{{comment.date}}</sup>
+
+    {% if user.role == 3 or user.login == comment.user_login %}
+
+       <h2><a href="/Admin/DeleteComment/{{comment.id}}"><b>Удалить</b></a></h2>
+
+    {% endif %}
     <hr>
     {% endfor %}
 </div>

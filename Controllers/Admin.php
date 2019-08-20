@@ -12,6 +12,7 @@ use Core\Controller;
 use Core\Login;
 use Core\LoginUser;
 use Model\Article;
+use Model\Comment;
 
 
 class Admin extends Controller
@@ -36,6 +37,13 @@ class Admin extends Controller
         $this->view->article = Article::findById($id);
         $this->view->article->delete();
         header('Location: /Admin');
+    }
+
+    public function actionDeleteComment($id)
+    {
+        $this->view->article = Comment::findById($id);
+        $this->view->article->delete();
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
     public function actionAdd()

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
     {% block title %}
     <title>Все статьи</title>
     {% endblock %}
-    <link href="/Templates/newStyle.css" rel="stylesheet" type="text/css">
+    <link href="/Templates/style.css" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -14,7 +16,7 @@
 <body>
 <div id="welcome">
     <h2>Здравствуйте, <span>{{user.name | default('гость')}}! </span></h2>
-    {% if user.role > 1 %}
+    {% if user.role == 3 %}
 <p>
 <h2><a href="/Admin"><b>АдминПанель</b></a></h2>
 </p>
