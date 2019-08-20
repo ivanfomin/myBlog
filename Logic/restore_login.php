@@ -18,13 +18,13 @@ if (!empty($_POST['id']) && !empty($_POST['password']) && !empty($_POST['repeat_
         echo "Пароли не совпадают!";
         ?>
         <br>
-        <a href="/">Back</a>
+        <a href="javascript:history.back()">Back</a>
         <?php
     } elseif (strlen($password) < 6) {
         echo "Пароль слишком короткий!";
         ?>
         <br>
-        <a href="/">Back</a>
+        <a href="javascript:history.back()">Back</a>
         <?php
     } else {
         $user = User::findById($_POST['id']);

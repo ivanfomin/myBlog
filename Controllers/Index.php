@@ -56,7 +56,12 @@ class Index extends Controller
     public function actionSend()
     {
         $this->view->user = LoginUser::check();
-        $this->view->display('connect.html');
+        if ($this->view->user == false) {
+            $this->view->message = 'Необходимо зарегестрироваться!';
+            $this->view->display('index.html');
+        } else {
+            $this->view->display('send.html');
+        }
     }
 
     public function actionConfirm($token)
